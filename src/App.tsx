@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { RiskZone } from './types';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
@@ -96,22 +97,30 @@ function App() {
     setIsProcessing(false);
   };
 
-  const generateMockRiskZones = (region: Region) => {
-    const zones = [];
-    const centerLat = region.bounds.center[0];
-    const centerLng = region.bounds.center[1];
-    
-    for (let i = 0; i < 25; i++) {
-      zones.push({
-        id: i,
-        lat: centerLat + (Math.random() - 0.5) * 0.6,
-        lng: centerLng + (Math.random() - 0.5) * 0.6,
-        risk: Math.random() > 0.6 ? 'high' : Math.random() > 0.3 ? 'moderate' : 'low',
-        confidence: 0.65 + Math.random() * 0.35
-      });
-    }
-    return zones;
-  };
+  const generateMockRiskZones = (region: Region): RiskZone[] => {
+  const zones: RiskZone[] = [];
+  const centerLat = region.bounds.center[0];
+  const centerLng = region.bounds.center[1];
+
+  for (let i = 0; i < 25; i++) {
+    const rand = Math.random();
+    let risk: 'high' | 'moderate' | 'low';
+
+    if (rand > 0.6) risk = 'high';
+    else if (rand > 0.3) risk = 'moderate';
+    else risk = 'low';
+
+    zones.push({
+      id: i,
+      lat: centerLat + (Math.random() - 0.5) * 0.6,
+      lng: centerLng + (Math.random() - 0.5) * 0.6,
+      risk,
+      confidence: 0.65 + Math.random() * 0.35
+    });
+  }
+
+  return zones;
+};
 
   const generateMockSpreadData = (region: Region) => {
     const spreadData: { [key: number]: any[] } = {};
