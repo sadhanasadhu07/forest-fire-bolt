@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Settings as SettingsIcon,
-  User,
+  //User,
   Bell,
-  Shield,
+  //Shield,
   Database,
   Cpu,
   Save,

@@ -27,7 +27,7 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = ({
   selectedRegion,
   predictionData,
-  simulationData,
+  //simulationData,
   isProcessing,
   processingSteps,
   onNavigate
