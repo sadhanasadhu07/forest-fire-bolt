@@ -156,7 +156,7 @@ const MapVisualization: React.FC<MapVisualizationProps> = ({
       if (spreadData) {
         spreadData.forEach(point => {
           const intensity = point.intensity;
-          const color = `rgba(239, 68, 68, ${intensity})`;
+         // const color = `rgba(239, 68, 68, ${intensity})`;
           
           const marker = window.L.circleMarker([point.lat, point.lng], {
             radius: 6,

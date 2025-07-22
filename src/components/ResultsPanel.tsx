@@ -12,7 +12,7 @@ interface ResultsPanelProps {
 const ResultsPanel: React.FC<ResultsPanelProps> = ({
   predictionData,
   simulationData,
-  activeLayer,
+  //activeLayer,
   simulationTimeStep
 }) => {
   const formatArea = (area: number) => {
