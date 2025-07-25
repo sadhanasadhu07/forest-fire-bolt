@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { RiskZone } from './types';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
@@ -204,29 +205,41 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
-      <Navbar isDarkMode={isDarkMode} onThemeToggle={setIsDarkMode} />
-      
-      <div className="flex">
-        <Sidebar activeView={activeView} onViewChange={setActiveView} />
-        
-        <main className="flex-1 ml-64 pt-16 p-6">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeView}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="h-full"
-            >
-              {renderActiveView()}
-            </motion.div>
-          </AnimatePresence>
-        </main>
-      </div>
+  <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+    {/* Navbar is fixed */}
+    <Navbar isDarkMode={isDarkMode} onThemeToggle={setIsDarkMode} />
+
+    {/* This div adds top padding to avoid overlay from fixed navbar */}
+    <div className="pt-20 flex">
+      {/* Sidebar */}
+      <Sidebar activeView={activeView} onViewChange={setActiveView} />
+
+      {/* Main Content */}
+      <main className="flex-1 ml-64 p-6">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeView}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="h-full"
+          >
+            {renderActiveView()}
+          </motion.div>
+        </AnimatePresence>
+      </main>
+    </div>
+  </div>
+);
+
+return (
+    <div className="p-4 bg-gray-100 min-h-screen">
+      <h1 className="text-2xl font-bold mb-4">🔥 Forest Fire Risk Analysis - Heatmap View</h1>
+      <Heatmap />
     </div>
   );
+  
 }
 
 export default App;

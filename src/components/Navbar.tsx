@@ -12,6 +12,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, onThemeToggle }) => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm">
       <div className="px-6 py-4">
         <div className="flex items-center justify-between">
+          {/* Logo & Title Section */}
           <div className="flex items-center space-x-3">
             <motion.div
               whileHover={{ rotate: 360 }}
@@ -29,6 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, onThemeToggle }) => {
             </div>
           </div>
 
+          {/* Right Section: Status & Theme Toggle */}
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2 px-3 py-1 bg-green-100 dark:bg-green-900 rounded-full">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
