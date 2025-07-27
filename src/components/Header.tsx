@@ -10,7 +10,7 @@ const Header: React.FC = () => {
             <div className="flex items-center space-x-2">
               <Satellite className="h-8 w-8 text-orange-400" />
               <div>
-                <h1 className="text-xl font-bold">ISRO Forest Fire Prediction System</h1>
+
                 <p className="text-sm text-blue-200">Advanced Geospatial Analytics for Fire Management</p>
               </div>
             </div>
