@@ -114,7 +114,7 @@ const RiskAnalysis: React.FC<RiskAnalysisProps> = ({ predictionData }) => {
 
   return (
     <div className="flex flex-col items-center gap-6 p-4">
-      <h2 className="text-3xl font-semibold text-gray-800">🔥 Fire Risk Distribution</h2>
+      <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-200">🔥 Fire Risk Distribution</h2>
 
       <div
         className="rounded-lg shadow-lg p-4 bg-white transition-transform duration-300 hover:scale-105"
